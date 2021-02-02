@@ -32,9 +32,9 @@ const Hero = () => {
           <h1>I'm Aimie</h1>
           <h4>Purpose</h4>
           <p>Welcome! Let me give you some insight into 
-           my life.<br></br> This portfolio would serve as a way to showcase  <br></br>
-             my work as a Software Engineer. It would include various <br></br>
-            projects, websites and scripts I have written. It would <br></br> 
+           my life.<br></br> This portfolio will serve as a way to showcase  <br></br>
+             my work as a Software Engineer. It will include various <br></br>
+            projects, websites and scripts that I have written. It will <br></br> 
             also include my resume and contact information. Have fun!</p>
         </div>
       </article>
