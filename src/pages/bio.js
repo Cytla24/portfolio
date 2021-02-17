@@ -3,18 +3,24 @@ import Layout from "../components/Layout"
 import { graphql } from "gatsby"
 import Title from "../components/Title"
 import Image from "gatsby-image"
-import News from "../components/News"
-// ...GatsbyImageSharpFluid
 
-const news = ({
+const Bio = ({
   data: {
-    allStrapiNews: { nodes: news },
+    bio: { nodes },
   },
 }) => {
+  const { info, image, title } = nodes[0]
+
   return (
     <Layout>
-      <section className="blog-page">
-        <News news={news} title="news" />
+      <section className="about-page">
+        <div className="section-center about-center">
+          <Image fluid={image.childImageSharp.fluid} className="about-img" />
+          <article className="about-text">
+            <Title title={title} />
+            <p>{info}</p>
+          </article>
+        </div>
       </section>
     </Layout>
   )
@@ -23,14 +29,9 @@ const news = ({
 export const query = graphql`
   {
     __typename
-    allStrapiNews {
+    bio: allStrapiBio {
       nodes {
-        slug
-        desc
-        date(formatString: "MMMM Do, YYYY")
         title
-        id
-        category
         image {
           childImageSharp {
             fluid {
@@ -38,9 +39,10 @@ export const query = graphql`
             }
           }
         }
+        info
       }
     }
   }
 `
 
-export default news
+export default Bio
