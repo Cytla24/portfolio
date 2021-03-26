@@ -23,7 +23,7 @@ const data = [
   },
   {
     id: 5,
-    text: "project",
+    text: "projects",
     url: "/project/",
   },
   {

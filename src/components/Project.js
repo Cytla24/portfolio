@@ -10,7 +10,7 @@ const Project = ({ id, title, image, description, url }) => {
     <article className="project">
       <Image fluid={image.childImageSharp.fluid} className="project-img" />
       <div className="project-info">
-        {/* <h3>My {title}</h3> */}
+        <h3>{title}</h3>
         {/* <p className="project-desc">{description}</p> */}
         <ReactMarkdown source={description} className="project-desc" />
         <div className="project-links">

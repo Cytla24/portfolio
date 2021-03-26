@@ -13,6 +13,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const result_proj = await graphql(`
+    {
+      news: allStrapiProjects {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
   result.data.news.nodes.forEach(eachnews => {
     createPage({
       path: `/news/${eachnews.slug}`,
@@ -22,4 +32,28 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  createPage({
+    path: `/projects/${result_proj.data.news.nodes[0].slug}`,
+    component: path.resolve(`src/templates/how-to-template.js`),
+    context: {
+      slug: result_proj.data.news.nodes[0].slug,
+    },
+  })
+  createPage({
+    path: `/projects/${result_proj.data.news.nodes[1].slug}`,
+    component: path.resolve(`src/templates/review-template.js`),
+    context: {
+      slug: result_proj.data.news.nodes[1].slug,
+    },
+  })
+  // result_proj.data.news.nodes.forEach(eachproj => {
+  //   createPage({
+  //     path: `/projects/${eachproj.slug}`,
+  //     component: path.resolve(`src/templates/review-template.js`),
+  //     context: {
+  //       slug: eachproj.slug,
+  //     },
+  //   })
+  // })
 }

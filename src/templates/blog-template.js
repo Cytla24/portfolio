@@ -28,7 +28,7 @@ const ComponentName = ({ data }) => {
 }
 
 export const query = graphql`
-  query GetSingleNew($slug: String) {
+  query getSingleNew($slug: String) {
     EachNews: strapiNews(slug: { eq: $slug }) {
       content
       title

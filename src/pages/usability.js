@@ -17,7 +17,7 @@ const Usability = ({
             <Title title="Usability Report" />
             <Project
               id={usabilites.id}
-              title={usabilites[0].title}
+              title=""
               image={usabilites[0].image}
               description={usabilites[0].description}
               url="/files/usability-report.pdf"
